@@ -15,6 +15,7 @@
 		7FD62AD41B2BEA6800BFDC81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD62AD31B2BEA6800BFDC81 /* Images.xcassets */; };
 		7FD62AD71B2BEA6800BFDC81 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD62AD51B2BEA6800BFDC81 /* LaunchScreen.xib */; };
 		7FD62AE31B2BEA6800BFDC81 /* Bonsai_VillageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD62AE21B2BEA6800BFDC81 /* Bonsai_VillageTests.m */; };
+		FDC94FCB55C8BCB24D0D8BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA92A1D17F2A07729BEB6DE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		7FD62ADC1B2BEA6800BFDC81 /* Bonsai VillageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bonsai VillageTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD62AE11B2BEA6800BFDC81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FD62AE21B2BEA6800BFDC81 /* Bonsai_VillageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bonsai_VillageTests.m; sourceTree = "<group>"; };
+		CFA92A1D17F2A07729BEB6DE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D537DECB5D5242A1D761AB06 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EA3DE823B2604A2F670DB2F3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC94FCB55C8BCB24D0D8BEB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +67,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26F90E35F1653F80C344D915 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFA92A1D17F2A07729BEB6DE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7FD62AB71B2BEA6800BFDC81 = {
 			isa = PBXGroup;
 			children = (
 				7FD62AC21B2BEA6800BFDC81 /* Bonsai Village */,
 				7FD62ADF1B2BEA6800BFDC81 /* Bonsai VillageTests */,
 				7FD62AC11B2BEA6800BFDC81 /* Products */,
+				C1D7D56478D90E303883B320 /* Pods */,
+				26F90E35F1653F80C344D915 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C1D7D56478D90E303883B320 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D537DECB5D5242A1D761AB06 /* Pods.debug.xcconfig */,
+				EA3DE823B2604A2F670DB2F3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FD62AE61B2BEA6800BFDC81 /* Build configuration list for PBXNativeTarget "Bonsai Village" */;
 			buildPhases = (
+				BA0496CA914ABF78CBF42DDC /* Check Pods Manifest.lock */,
 				7FD62ABC1B2BEA6800BFDC81 /* Sources */,
 				7FD62ABD1B2BEA6800BFDC81 /* Frameworks */,
 				7FD62ABE1B2BEA6800BFDC81 /* Resources */,
+				C325A0464FEC26676861800E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +242,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BA0496CA914ABF78CBF42DDC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C325A0464FEC26676861800E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FD62ABC1B2BEA6800BFDC81 /* Sources */ = {
@@ -351,6 +410,7 @@
 		};
 		7FD62AE71B2BEA6800BFDC81 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D537DECB5D5242A1D761AB06 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Bonsai Village/Info.plist";
@@ -361,6 +421,7 @@
 		};
 		7FD62AE81B2BEA6800BFDC81 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA3DE823B2604A2F670DB2F3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Bonsai Village/Info.plist";
@@ -422,6 +483,7 @@
 				7FD62AE81B2BEA6800BFDC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FD62AE91B2BEA6800BFDC81 /* Build configuration list for PBXNativeTarget "Bonsai VillageTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +492,7 @@
 				7FD62AEB1B2BEA6800BFDC81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
